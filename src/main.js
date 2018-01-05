@@ -8,11 +8,11 @@ import { store } from './store/store'
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
-Vue.http.options.root = 'https://vuejs-stocktrader-6ce40.firebaseio.com/'
+// Vue.http.options.root = 'https://vuejs-stocktrader-6ce40.firebaseio.com/'
 
-Vue.filter('currency', (value) => {
-  return '$'+ Number(value).toLocaleString()
-});
+// Vue.filter('currency', (value) => {
+//   return '$'+ Number(value).toLocaleString()
+// });
 
 const router = new VueRouter({
   routes,

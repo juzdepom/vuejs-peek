@@ -2,10 +2,10 @@
   <div class="event-container">
     <div class="pull-left">
 
-        <p><img class="profile-photo" :src="photoUrl" alt=""><strong>{{ username }} {{ action }}</strong> ({{ location }})</p>
+        <p><img class="profile-photo" :src="photoUrl" alt=""><strong>{{ userEvent.username }} {{ userEvent.action }}</strong> ({{ userEvent.location }})</p>
     </div>
     <div class="pull-right">
-      <p>{{ time }} <img class="three-dots" src="../assets/three_dots@2x.png"></p>
+      <p>{{ userEvent.time }} <img class="three-dots" src="../assets/three_dots@2x.png"></p>
 
     </div>
   </div>
@@ -13,15 +13,7 @@
 
 <script>
 export default {
-  data(){
-    return {
-      photoUrl: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png',
-      username: "Dominic Chavez",
-      action: "snipped a coupon",
-      location: "Philadelphia, PA",
-      time: "30 min ago",
-    }
-  },
+  props: ['userEvent'],
 
 }
 </script>
@@ -58,6 +50,7 @@ export default {
     width: 40px;
   }
   .event-container {
+    margin-top: 12px;
     line-height: 60px;
     height: 60px;
     cursor: pointer;

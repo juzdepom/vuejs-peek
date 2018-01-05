@@ -7,11 +7,10 @@
             <app-business></app-business>
             <app-business></app-business>
           </div>
-
         </div>
         <div class="main-content">
           <app-header></app-header>
-          <app-event></app-event>
+          <app-event style="margin-top:12px;" v-for="userEvent in userEvents" :userEvent="userEvent"></app-event>
         </div>
       </div>
 
@@ -42,22 +41,31 @@
 
 <script>
   import Header from './components/Header.vue'
-  import Event from './components/Event.vue'
+  import AppEvent from './components/Event.vue'
   import Business from './components/Business.vue'
 
   export default {
+    computed: {
+      userEvents(){
+        return this.$store.getters.userEvents;
+      }
+    },
     components: {
       appHeader: Header,
-      appEvent: Event,
+      appEvent: AppEvent,
       appBusiness: Business,
     },
     created(){
-      this.$store.dispatch('initStocks');
+      this.$store.dispatch('initUserEvents');
     }
   }
 </script>
 
 <style>
+
+  app-event {
+    margin-top: 12px;
+  }
   .left-sidebar {
     position: relative;
     vertical-align: middle;
